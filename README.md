@@ -1,6 +1,6 @@
 # README: Moviegram
 
-## Random Password Generator
+## Moviegram: Watch How You Feel
 This application serves users that want to create an optimal movie watchlist based on criteria including mood and genre. They can also search for a movie by name. Our application will return results that they can choose from to customize their watchlist. Once their watchlist is populated, they will be able to hover over the movie card that shows information such as title, rating, genre, and keywords along with a poster image. They can add or remove options chosen to continue to edit their watchlist until they save their final choices. Moviegram will enhance the experience of watching movies from the moment users decide they want to watch one.
 
 ## User Story
