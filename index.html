@@ -16,9 +16,17 @@
                 <div class="profile-user-settings">
     
                     <h1 class="moviegram-header">Moviegram: Watch How You Feel</h1>
-    
-                    <input type="text" id="movieSearch" onkeyup="myFunction()" placeholder="Search for a movie" title="Movie Search">
                     
+                    <form>
+                        <label>Search by Movie Title</label>
+                        <input type="text" id="movieSearch" placeholder="E.g. Cars" title="Movie Search">
+                        <button id="searchBtn">Submit</button>
+                    </form>
+
+                    <div id="searchResults">
+                        <h3>Search Results</h3>
+                    </div>
+
                     <label for="moods">Choose Your Mood</label>
 
                         <select name="moods" id="moods">
@@ -61,6 +69,7 @@
     
     </main>
     
+    <script src="./assets/script.js"></script>
 
 </body>
 </html>
