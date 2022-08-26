@@ -20,21 +20,22 @@ function onSubmit(event) {
   .then(function (data) {
     renderSearch(data);
   });
+
+  movieSearch.value = "";
 }
 
 function renderSearch(results) {
-  
+  searchResults.innerHTML = "";
   var movies = results.Search;
   
-
-
   for (i = 0; i < movies.length; i++) {
-    console.log(movies[i].Title);
+    var li = document.createElement("li");
+    li.textContent = movies[i].Title;
+    li.setAttribute("data-index", i);
+    searchResults.appendChild(li);
   }
-  
+
+
 }
 
 searchBtn.addEventListener("click", onSubmit);
-
-
-
