@@ -4,9 +4,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Moviegram</title>
 </head>
 <body>
+    <header>
+
+        <div class="container">
     
+            <div class="searchbox">
+
+                    <!-- Title of application  -->
+                <h1 class="moviegram-header">Moviegram: Watch How You Feel</h1>
+
+                    <!-- Search for specific movie -->
+                <form>
+                        <label>Search by Movie Title</label>
+                        <input type="text" id="movieSearch" placeholder="Interstellar" title="Movie Search">
+                        <button id="searchBtn">Submit</button>
+                    </form>
+
+                    <div>
+                        <h3>Search Results</h3>
+                        <ul id="searchResults">
+                            
+                        </ul>
+                    </div>
+
+                    <label for="moods">Choose Your Mood</label>
+
+                        <select name="moods" id="moods">
+                            <option value="happy">Happy</option>
+                            <option value="melancholic">Melancholic</option>
+                            <option value="heady">Heady</option>
+                            <option value="curious">Curious</option>
+                            <option value="excited">Excited</option>
+                            <option value="celebratory">Celebratory</option>
+                            <option value="tired">Tired</option>
+                            <option value="easygoing">Easygoing</option>
+                            <option value="dramatic">Dramatic</option>
+                            <option value="pentup">Pent Up</option>
+                        </select>
+                        <br><br>
+                        <input type="submit" value="Submit">
+                        <br><br>
+    
+                        <label for="genres">Go By Genre</label>
+
+                        <select name="moods" id="moods">
+                            <option value="action">Action</option>
+                            <option value="thriller">Thriller</option>
+                            <option value="scifi">Sci-Fi</option>
+                            <option value="documentary">Documentary</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="party">Party</option>
+                            <option value="romcom">Rom-Com</option>
+                            <option value="classics">Classics</option>
+                            <option value="horror">Horror</option>
+                            <option value="cathartic">Cathartic</option>
+                        </select>
+                        <br><br>
+                        <input type="submit" value="Submit">
+    
+                </div>
+            <!-- End of search section -->
+
+            <!-- Playlist section -->
+            <div class="container">
+                <div id="movieplist">
+                    <h2>My Movie Playlist</h2>
+                    <section>
+                    <table>
+                        <tr> 
+                          <td>Column 1</td>
+                          <td>Column 2</td>
+                        </tr>
+                        <tr> 
+                          <td>Column 3</td>
+                          <td>Column 4</td>
+                        </tr>
+                        <tr>
+                          <td>Column 5</td>
+                          <td>Column 6</td>
+                        </tr>
+                        <tr>
+                          <td>Column 7</td>
+                          <td>Column 8</td>
+                        </tr>
+                        <tr>
+                          <td>Column 9</td>
+                          <td>Column 10</td>
+                        </tr>
+                      </table>
+                      </section>
+                </div>
+
+
+
+            </div>
+    
+        </div>
+        <!-- End of container -->
+    
+    </main>
+    
+    <script src="./assets/script.js"></script>
+
 </body>
 </html>
