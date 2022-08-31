@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Moviegram</title>
 </head>
 <body>
@@ -26,7 +27,8 @@
                     <div id="searchResults">
                         <h3>Search Results</h3>
                     </div>
-
+                    
+                    <!-- Populate movie suggestions based on mood -->
                     <label for="moods">Choose Your Mood</label>
 
                         <select name="moods" id="moods">
@@ -45,6 +47,7 @@
                         <input type="submit" value="Submit">
                         <br><br>
     
+                        <!-- Populate movie suggestions based on genre -->
                         <label for="genres">Go By Genre</label>
 
                         <select name="moods" id="moods">
@@ -94,7 +97,7 @@
                       </table>
                       </section>
                 </div>
-
+                <!-- End of playlist section -->
 
 
             </div>
@@ -104,7 +107,10 @@
     
     </main>
     
+    <!-- Link to JS -->
     <script src="./assets/script.js"></script>
+    <script src= 'https://api.themoviedb.org/3/movie/76341?api_key=c560270447805eeaa48cfdda957f60b7'></script>
+    <scipt type='text/javascript' src="./assets/mg.js"></script>
 
 </body>
 </html>
