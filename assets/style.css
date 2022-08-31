@@ -3,7 +3,66 @@
     background-color: antiquewhite;
 }
 
-li:hover {
-    color: blue;
+.grid-container{
+    display: flex;
+    flex-direction: row;
 }
-/* */
+.box{
+    text-align: center;
+    padding: 10px;
+    background-color: lightblue;
+    border: 5px solid black;
+}
+.left-column{
+    flex-grow: 0;
+    height: 100vh;
+}
+.right-column{
+flex-grow: 4;
+height: 100vh;
+}
+.moviegram-header{
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+.left-column form{
+    border: 5px solid black;
+    display: flex;
+    border-radius: 5px;
+}
+.genreStyle{
+    border:5px solid black;
+    border-radius: 5px;
+}
+#movieplist{
+    border: 5px solid black;
+    border-radius: 5px;
+
+}
+.resultStyle{
+    border: 5px solid black;
+    border-radius: 5px;
+}
+#searchBtn{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: lightgrey;
+    align-items: flex-end;
+}
+#searchBtn:hover{
+    cursor:pointer;
+    background-color: yellow;
+}
+input[target=btnTarget]:hover{
+    cursor: pointer;
+    background-color: yellow;
+}   
+.moodStyle{
+    border: 5px solid black;
+    border-radius: 5px;
+    display: flex;
+}
+#moods:hover,#genres:hover{
+    background-color: lightblue;
+}
