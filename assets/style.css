@@ -2,6 +2,7 @@
     font-family: 'Times New Roman', Times, serif;
     background-color: antiquewhite;
 }
+
 .grid-container{
     display: flex;
     flex-direction: row;
@@ -65,4 +66,3 @@ input[target=btnTarget]:hover{
 #moods:hover,#genres:hover{
     background-color: lightblue;
 }
-
