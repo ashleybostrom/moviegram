@@ -2,5 +2,61 @@
     font-family: 'Times New Roman', Times, serif;
     background-color: antiquewhite;
 }
+.grid-container{
+    display: flex;
+    flex-direction: row;
+}
+.box{
+    text-align: center;
+    padding: 10px;
+    background-color: lightblue;
+    border: 5px solid black;
+}
+.left-column{
+    flex-grow: 1;
+    height: 100vh;
+}
+.right-column{
+flex-grow: 4;
+height: 100vh;
+}
+.moviegram-header{
+    border: 5px solid black;
+}
 
-/* */
+.left-column form{
+    background: turquoise;
+    border: 5px solid black;
+    display: flex;
+}
+.genreStyle{
+    border:5px solid black
+}
+#movieplist{
+    border: 5px solid black;
+
+}
+.resultStyle{
+    border: 5px solid black;
+}
+#searchBtn{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: lightslategray;
+    align-items: flex-end;
+}
+#searchBtn:hover{
+    cursor:pointer;
+    background-color: yellow;
+}
+input[target=btnTarget]:hover{
+    cursor: pointer;
+    background-color: yellow;
+}   
+.moodStyle{
+    border: 5px solid black;
+}
+#moods:hover,#genres:hover{
+    background-color: lightblue;
+}
+
