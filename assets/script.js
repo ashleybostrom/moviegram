@@ -7,8 +7,7 @@ var omdbapi = "http://www.omdbapi.com/?apikey=ab9eb185&s=";
 var movies;
 var playlist = [];
 
-
-
+//renders a list of movies you searched for
 function renderSearch(results) {
   searchResults.html("");
   movies = results.Search;
@@ -21,9 +20,9 @@ function renderSearch(results) {
 
     li.on("click", saveMovie);
   }
-
 }
 
+//saves the movie you clicked on to your playlist and saves your playlist to local storage
 function saveMovie(event) {
   var selection = $(event.target).attr("data-index");
   playlist.push(movies[selection]);
@@ -31,6 +30,7 @@ function saveMovie(event) {
   renderPlaylist();
 }
 
+//initializes your saved playlist from local storage
 function initPlaylist() {
   var storedPlaylist = JSON.parse(localStorage.getItem("playlist"));
   if (storedPlaylist !== null) {
@@ -40,10 +40,12 @@ function initPlaylist() {
   renderPlaylist();
 }
 
+//when called, stores your playlist to local storage
 function storePlaylist() {
   localStorage.setItem("playlist", JSON.stringify(playlist));
 }
 
+//renders your movie playlist
 function renderPlaylist() {
   moviePlaylistEl.html("");
 
@@ -59,6 +61,7 @@ function renderPlaylist() {
   }
 }
 
+//playlist delete button functionality
 moviePlaylistEl.on("click", function(event) {
   var element = $(event.target);
 
@@ -71,6 +74,7 @@ moviePlaylistEl.on("click", function(event) {
   }
 });
 
+//movie search button functionality
 searchBtn.on("click", function(event) {
   event.preventDefault();
   

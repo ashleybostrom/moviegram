@@ -3,4 +3,7 @@
     background-color: antiquewhite;
 }
 
+li:hover {
+    color: blue;
+}
 /* */
