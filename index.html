@@ -12,28 +12,31 @@
     <div class="grid-container">
       <div class="left-column box m-2 p-1">
         <!-- Title of application  -->
-        <h2 class="moviegram-header m-1">Moviegram: Watch How You Feel</h2>
+        <h2 class="moviegram-header m-1 text-lg">
+          Moviegram: Watch How You Feel
+        </h2>
 
         <!-- Search for specific movie -->
         <form class="m-1">
-          <label>Search by Movie Title</label>
+          <label class="text-xs">Search by Movie Title</label>
           <input
             type="text"
             id="movieSearch"
             placeholder="Interstellar"
             title="Movie Search"
+            class="p-1 m-2"
           />
-          <button id="searchBtn">Submit</button>
+          <button id="searchBtn" class="text-sm p-1 m-1">Submit</button>
         </form>
 
         <div class="resultStyle m-1 p-1">
           <h3>Search Results</h3>
           <ul id="searchResults"></ul>
         </div>
-        <div class="moodStyle m-1">
-          <label for="moods">Choose Your Mood</label>
+        <div class="moodStyle m-1 flex content-center">
+          <label for="moods" class="">Choose Your Mood</label>
 
-          <select name="moods" id="moods" class="m-2 p-1 border-2 rounded-sm ">
+          <select name="moods" id="moods" class="m-2 p-1 inline-flex">
             <option value="happy">Happy</option>
             <option value="melancholic">Melancholic</option>
             <option value="heady">Heady</option>
@@ -46,7 +49,12 @@
             <option value="pentup">Pent Up</option>
           </select>
           <br /><br />
-          <input type="submit" value="Submit" target="btnTarget" class="p-1 border-black border-2 rounded-sm" />
+          <input
+            type="submit"
+            value="Submit"
+            target="btnTarget"
+            class="p-1 border-black border-2 rounded-sm"
+          />
           <br /><br />
         </div>
 
@@ -54,7 +62,7 @@
           <label for="genres">Go By Genre</label>
           <!-- /changed name and ID from moods to genres like the section. -Isaac -->
 
-          <select name="genres" id="genres">
+          <select name="genres" id="genres" class="m-2 p-1">
             <option value="action">Action</option>
             <option value="thriller">Thriller</option>
             <option value="scifi">Sci-Fi</option>
@@ -67,7 +75,12 @@
             <option value="cathartic">Cathartic</option>
           </select>
           <br /><br />
-          <input type="submit" value="Submit" target="btnTarget" />
+          <input
+            type="submit"
+            value="Submit"
+            target="btnTarget"
+            class="p-1 border-black border-2 rounded-sm"
+          />
         </div>
       </div>
       <!-- End of search section -->
