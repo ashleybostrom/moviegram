@@ -16,8 +16,8 @@
                 <h2 class="moviegram-header m-1 text-lg">Moviegram: Watch How You Feel</h2>
 
                 <!-- Search for specific movie -->
-                <form class="m-1">
-                    <label class="text-xs">Search by Movie Title</label>
+                <form class="m-1 p-1">
+                    <label class="text-sm flex-wrap">Search by Movie Title</label>
                     <input type="text" id="movieSearch" placeholder="Interstellar" title="Movie Search" class="p-1 m-2"/>
                     <button class="bg-sky-500 hover:bg-sky-600 rounded m-2 px-2 text-white" id="searchBtn">Submit</button>
                 </form>
@@ -45,7 +45,6 @@
                     </select>
                     <br/><br/>
                     <button class="bg-sky-500 hover:bg-sky-600 rounded m-2 px-2 text-white" id="moodBtn">Submit</button>
-                    <br/><br/>
                 </div>
 
                 <div class="genreStyle m-1 p-1">
@@ -71,9 +70,9 @@
 
             <!-- Playlist section -->
             <div class="right-column box m-1 p-1">
-                <div>
+                <div class="movie-container m-1 p-1">
                     <h2>My Movie Playlist</h2>
-                    <section id="movieplist" class="m-1 flex flex-wrap">
+                    <section id="movieplist" class="m-1 flex flex-wrap justify-evenly">
 
                     </section>
                 </div>
