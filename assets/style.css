@@ -2,6 +2,7 @@
     font-family: 'Times New Roman', Times, serif;
     background-color: antiquewhite;
 }
+
 .grid-container{
     display: flex;
     flex-direction: row;

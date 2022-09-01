@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Moviegram</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/style.css" />
   </head>
-  <body>
+<body>
+    <header>
+
+        <div class="container">
+    
+            <div class="searchbox">
+
+                    <!-- Title of application  -->
+                <h1 class="moviegram-header">Moviegram: Watch How You Feel</h1>
+                
+                <body>
     <div class="grid-container">
       <div class="left-column box m-1 p-1 ">
         <!-- Title of application  -->
@@ -17,6 +29,8 @@
         </h2>
 
         <!-- Search for specific movie -->
+
+                    <!-- Search for specific movie -->
         <form class="m-1">
           <label class="text-xs">Search by Movie Title</label>
           <input
@@ -29,12 +43,71 @@
           <button id="searchBtn" class="text-sm p-1 m-1">Submit</button>
         </form>
 
+                    <div id="searchResults">
+                        <h3>Search Results</h3>
+                    </div>
+                    
+                    <!-- Populate movie suggestions based on mood -->
+                    <label for="moods">Choose Your Mood</label>
+
+                        <select name="moods" id="moods">
+                            <option value="happy">Happy</option>
+                            <option value="melancholic">Melancholic</option>
+                            <option value="heady">Heady</option>
+                            <option value="curious">Curious</option>
+                            <option value="excited">Excited</option>
+                            <option value="celebratory">Celebratory</option>
+                            <option value="tired">Tired</option>
+                            <option value="easygoing">Easygoing</option>
+                            <option value="dramatic">Dramatic</option>
+                            <option value="pentup">Pent Up</option>
+                        </select>
+                        <br><br>
+                        <input type="submit" value="Submit">
+                        <br><br>
+    
+                        <!-- Populate movie suggestions based on genre -->
+                        <label for="genres">Go By Genre</label>
+
+
         <div class="resultStyle m-1 p-1">
           <h3>Search Results</h3>
           <ul id="searchResults"></ul>
         </div>
         <div class="moodStyle m-1  p-1">
           <label for="moods" class="text-sm">Choose Your Mood</label>
+
+
+            <!-- Playlist section -->
+            <div class="container">
+                <div id="movieplist">
+                    <h2>My Movie Playlist</h2>
+                    <section>
+                    <table>
+                        <tr> 
+                          <td>Column 1</td>
+                          <td>Column 2</td>
+                        </tr>
+                        <tr> 
+                          <td>Column 3</td>
+                          <td>Column 4</td>
+                        </tr>
+                        <tr>
+                          <td>Column 5</td>
+                          <td>Column 6</td>
+                        </tr>
+                        <tr>
+                          <td>Column 7</td>
+                          <td>Column 8</td>
+                        </tr>
+                        <tr>
+                          <td>Column 9</td>
+                          <td>Column 10</td>
+                        </tr>
+                      </table>
+                      </section>
+                </div>
+                <!-- End of playlist section -->
 
           <select name="moods" id="moods" class="m-2 p-1 inline-flex">
             <option value="happy">Happy</option>
@@ -61,6 +134,7 @@
         <div class="genreStyle m-1 ">
           <label for="genres">Go By Genre</label>
           <!-- /changed name and ID from moods to genres like the section. -Isaac -->
+
 
           <select name="genres" id="genres" class="m-2 p-1">
             <option value="action">Action</option>
@@ -117,7 +191,18 @@
       </div>
     </div>
     <!-- End of container -->
+    
+    </main>
+    
 
+    <!-- Link to JS -->
     <script src="./assets/script.js"></script>
-  </body>
+    <script src= 'https://api.themoviedb.org/3/movie/76341?api_key=c560270447805eeaa48cfdda957f60b7'></script>
+    <scipt type='text/javascript' src="./assets/mg.js"></script>
+    
+    <!-- Added link to the jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/script.js"></script>
+
+</body>
 </html>
