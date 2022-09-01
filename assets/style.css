@@ -45,25 +45,4 @@ height: 100vh;
     border-radius: 5px;
 }
 #searchBtn{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: lightgrey;
-    align-items: flex-end;
-}
-#searchBtn:hover{
-    cursor:pointer;
-    background-color: skyblue;
-}
-input[target=btnTarget]:hover{
-    cursor: pointer;
-    background-color: skyblue;
-}   
-.moodStyle{
-    border: 5px solid black;
-    border-radius: 5px;
-    display: flex;
-}
-#moods:hover,#genres:hover{
-    background-color: skyblue;
-}
-
+    border: 1px solid black;git 
