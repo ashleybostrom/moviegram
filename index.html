@@ -19,7 +19,7 @@
                 <form class="m-1">
                     <label class="text-xs">Search by Movie Title</label>
                     <input type="text" id="movieSearch" placeholder="Interstellar" title="Movie Search" class="p-1 m-2"/>
-                    <button id="searchBtn" class="text-sm p-1 m-1">Submit</button>
+                    <button class="bg-sky-500 hover:bg-sky-600 rounded m-2 px-2 text-white" id="searchBtn">Submit</button>
                 </form>
             
 
@@ -44,13 +44,12 @@
                         <option value="pentup">Pent Up</option>
                     </select>
                     <br/><br/>
-                    <input type="submit" value="Submit" target="btnTarget" class="p-1 border-black border-2 rounded-sm"/>
+                    <button class="bg-sky-500 hover:bg-sky-600 rounded m-2 px-2 text-white" id="moodBtn">Submit</button>
                     <br/><br/>
                 </div>
 
-                <div class="genreStyle m-1 ">
+                <div class="genreStyle m-1 p-1">
                     <label for="genres">Go By Genre</label>
-                    <!-- /changed name and ID from moods to genres like the section. -Isaac -->
 
                     <select name="genres" id="genres" class="m-2 p-1">
                         <option value="action">Action</option>
@@ -64,8 +63,8 @@
                         <option value="horror">Horror</option>
                         <option value="cathartic">Cathartic</option>
                     </select>
-                    <br /><br />
-                    <input type="submit" value="Submit" target="btnTarget" class="p-1 border-black border-2 rounded-sm"/>
+                    <br/><br/>
+                    <button class="bg-sky-500 hover:bg-sky-600 rounded m-2 px-2 text-white">Submit</button>
                 </div>
             </div>
             <!-- End of search section -->
@@ -79,6 +78,7 @@
                     </section>
                 </div>
             </div>
+
         </div>
         <!-- End of container -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

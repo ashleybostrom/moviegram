@@ -17,6 +17,7 @@ function renderSearch(results) {
     var li = $("<li>");
     li.text(movies[i].Title);
     li.attr("data-index", i);
+    li.addClass("rounded bg-green-500 hover:bg-green-600 m-1")
     searchResults.append(li);
 
     li.on("click", saveMovie);
@@ -51,8 +52,12 @@ function renderPlaylist() {
     var div = $("<div>");
     div.text(playlist[i].Title);
     div.attr("data-index", i);
+    div.addClass("rounded border-2 border-gray-600 m-1");
+
     var button = $("<button>");
     button.text("delete");
+    button.addClass("rounded px-2 bg-red-600 hover:bg-red-700");
+
     moviePlaylistEl.append(div);
     div.append(button);
 
