@@ -12,6 +12,17 @@ var imgpath = 'https://image.tmdb.org/t/p/w1280';
 var movies;
 var playlist = [];
 
+// Creating var and loop for mood IDs
+var moodAPI =  "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Cpent%2Cup%20"
+
+let moodresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Cpent%2Cup%20')   
+    if (response.ok) {
+        return response.json();
+    }
+
+//
+        
+
 document.addEventListener('DOMContentLoaded', function () {
     var input = document.getElementById('moods');
     if (localStorage ['moodSel]']) { //if mood is chosen
@@ -22,9 +33,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+var genreAPI = "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true"
+
 let genreresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true&total_results=10')
     //.then(res => res.json()).then(data => console.log(data));
-      .then(res => res.json()).then(function(data)
+       if (response.ok) {
+        return response.json();
+      }
+
+// Array IDs for Action, Thriller, Sci-Fi, Documentary, Comedy, Adventure, Romance, Westerns, Horror, Drama
+var arrayids = [28, 53, 878, 99, 35, 12, 10749, 37, 27, 18] 
+
+let txt = "";
+for (let x in arrayids) {
+    txt += arrayids[x];
+}
+
+
 
     document.addEventListener('DOMContentLoaded', function () {
         var input = document.getElementById('genres');
