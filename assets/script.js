@@ -3,7 +3,7 @@ var searchBtn = $("#searchBtn");
 var searchResults = $("#searchResults");
 var moviePlaylistEl = $("#movieplist");
 
-var omdbapi = "http://www.omdbapi.com/?apikey=ab9eb185&s=";
+var omdbapi = "http://www.omdbapi.com/?apikey=ab9eb185&plot=short&s=";
 var movies;
 var playlist = [];
 
@@ -18,12 +18,11 @@ function renderSearch(results) {
     var li = $("<li>");
     li.text(movies[i].Title);
     li.attr("data-index", i);
-    li.addClass("rounded bg-green-500 hover:bg-green-600 m-1")
+    li.addClass("rounded bg-sky-500 hover:bg-sky-600 m-1")
     searchResults.append(li);
 
     li.on("click", saveMovie);
   }
-
 }
 
 //saves movie selection to your playlist
@@ -56,18 +55,36 @@ function renderPlaylist() {
   for (var i = 0; i < playlist.length; i++) {
     //Playlist Items
     var div = $("<div>");
-    div.text(playlist[i].Title);
     div.attr("data-index", i);
-    div.addClass("rounded border-2 border-gray-600 m-1");
+    div.addClass("rounded border-2 border-green-700 bg-green-400 m-1 p-1 flex flex-col");
+
+    //Title
+    var title = $("<span>")
+    title.text(playlist[i].Title);
+    title.addClass("rounded bg-green-500 p-1")
+
+    //Poster
+    var container = $("<div>");
+    var img = $("<img>");
+    img.attr("src", playlist[i].Poster);
 
     //Delete button
     var button = $("<button>");
     button.text("delete");
     button.addClass("rounded px-2 bg-red-600 hover:bg-red-700");
 
-    moviePlaylistEl.append(div);
-    div.append(button);
+    //Year
+    var year = $("<span>");
+    year.text(playlist[i].Year);
+    year.addClass("rounded bg-gray-400 p-1")
 
+    //Append Elements
+    moviePlaylistEl.append(div);
+    div.append(title);
+    div.append(year);
+    div.append(container);
+    container.append(img);
+    div.append(button);
   }
 }
 
@@ -93,6 +110,7 @@ searchBtn.on("click", function(event) {
     return;
   }
 
+  //OMDB API Fetch request
   fetch(omdbapi + userSearch)
   .then(function (response) {
     return response.json();
