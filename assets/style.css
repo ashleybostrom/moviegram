@@ -52,6 +52,7 @@ height: 100vh;
 }
 #searchBtn:hover{
     cursor:pointer;
+
     background-color: skyblue;
 }
 input[target=btnTarget]:hover{
@@ -66,4 +67,5 @@ input[target=btnTarget]:hover{
 #moods:hover,#genres:hover{
     background-color: skyblue;
 }
+
 
