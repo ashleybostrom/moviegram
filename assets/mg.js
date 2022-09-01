@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // let response = fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US');
 
-let responsetest = fetch('https://api.themoviedb.org/3/search/movie?api_key=bd949d583d67c785ccc8d2de7703c463&query=batman+be').then(res => res.json()).then(data => console.log(data)) 
-console.log(responsetest);
+let genreresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true&total_results=10');
+.then(res => res.json()).then(data => console.log(data)); 
+console.log(genreresaction);
+console.log(genreresaction.page);
+    
 
