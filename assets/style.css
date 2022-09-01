@@ -1,5 +1,5 @@
 *{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: sans-serif;
     background-color: antiquewhite;
 }
 
@@ -7,21 +7,25 @@
     display: flex;
     flex-direction: row;
 }
+
 .box{
     text-align: center;
     padding: 10px;
     background-color: lightblue;
     border: 5px solid black;
 }
+
 .left-column{
     flex-grow: 0;
     height: 100%;
     min-height: 100vh;
 }
+
 .right-column{
-flex-grow: 4;
-height: 100vh;
+    flex-grow: 4;
+    height: 100vh;
 }
+
 .moviegram-header{
     border: 5px solid black;
     border-radius: 5px;
@@ -32,38 +36,32 @@ height: 100vh;
     display: flex;
     border-radius: 5px;
 }
+
 .genreStyle{
     border:5px solid black;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
 }
+
 #movieplist{
     border: 5px solid black;
     border-radius: 5px;
 
 }
+
 .resultStyle{
     border: 5px solid black;
     border-radius: 5px;
 }
-#searchBtn{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: lightgrey;
-    align-items: flex-end;
-}
-#searchBtn:hover{
-    cursor:pointer;
-    background-color: skyblue;
-}
-input[target=btnTarget]:hover{
-    cursor: pointer;
-    background-color: skyblue;
-}   
+
 .moodStyle{
     border: 5px solid black;
     border-radius: 5px;
     display: flex;
+    justify-content: space-between;
 }
+
 #moods:hover,#genres:hover{
     background-color: skyblue;
 }
