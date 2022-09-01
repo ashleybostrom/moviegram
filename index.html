@@ -1,113 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Moviegram</title>
-</head>
-<body>
-    <header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Moviegram</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="assets/style.css" />
+    </head>
 
-        <div class="container">
-    
-            <div class="searchbox">
+    <body>
+        <div class="grid-container">
+            <div class="left-column box m-1 p-1 ">
+                <!-- Title of application  -->
+                <h2 class="moviegram-header m-1 text-lg">Moviegram: Watch How You Feel</h2>
 
-                    <!-- Title of application  -->
-                <h1 class="moviegram-header">Moviegram: Watch How You Feel</h1>
+                <!-- Search for specific movie -->
+                <form class="m-1 p-1">
+                    <label class="text-sm flex-wrap">Search by Movie Title</label>
+                    <input type="text" id="movieSearch" placeholder="Interstellar" title="Movie Search" class="p-1 m-2"/>
+                    <button class="bg-sky-500 hover:bg-sky-600 rounded m-2 px-2 text-white" id="searchBtn">Submit</button>
+                </form>
+            
 
-                    <!-- Search for specific movie -->
-                <form>
-                        <label>Search by Movie Title</label>
-                        <input type="text" id="movieSearch" placeholder="Interstellar" title="Movie Search">
-                        <button id="searchBtn">Submit</button>
-                    </form>
-
-                    <div id="searchResults">
-                        <h3>Search Results</h3>
-                    </div>
-                    
-                    <!-- Populate movie suggestions based on mood -->
-                    <label for="moods">Choose Your Mood</label>
-
-                        <select name="moods" id="moods">
-                            <option value="happy">Happy</option>
-                            <option value="melancholic">Melancholic</option>
-                            <option value="heady">Heady</option>
-                            <option value="curious">Curious</option>
-                            <option value="excited">Excited</option>
-                            <option value="celebratory">Celebratory</option>
-                            <option value="tired">Tired</option>
-                            <option value="easygoing">Easygoing</option>
-                            <option value="dramatic">Dramatic</option>
-                            <option value="pentup">Pent Up</option>
-                        </select>
-                        <br><br>
-                        <input type="submit" value="Submit">
-                        <br><br>
-    
-                        <!-- Populate movie suggestions based on genre -->
-                        <label for="genres">Go By Genre</label>
-
-                        <select name="genres" id="genres">
-                            <option value="action">Action</option>
-                            <option value="thriller">Thriller</option>
-                            <option value="scifi">Sci-Fi</option>
-                            <option value="documentary">Documentary</option>
-                            <option value="comedy">Comedy</option>
-                            <option value="party">Party</option>
-                            <option value="romcom">Rom-Com</option>
-                            <option value="classics">Classics</option>
-                            <option value="horror">Horror</option>
-                            <option value="cathartic">Cathartic</option>
-                        </select>
-                        <br><br>
-                        <input type="submit" value="Submit">
-    
+                <div class="resultStyle m-1 p-1">
+                    <h3>Search Results</h3>
+                    <ul id="searchResults"></ul>
                 </div>
+
+                <div class="moodStyle m-1  p-1">
+                    <label for="moods" class="text-sm">Choose Your Mood</label>
+
+                    <select name="moods" id="moods" class="m-2 p-1 inline-flex">
+                        <option value="happy">Happy</option>
+                        <option value="melancholic">Melancholic</option>
+                        <option value="heady">Heady</option>
+                        <option value="curious">Curious</option>
+                        <option value="excited">Excited</option>
+                        <option value="celebratory">Celebratory</option>
+                        <option value="tired">Tired</option>
+                        <option value="easygoing">Easygoing</option>
+                        <option value="dramatic">Dramatic</option>
+                        <option value="pentup">Pent Up</option>
+                    </select>
+                    <br/><br/>
+                    <button class="bg-sky-500 hover:bg-sky-600 rounded m-2 px-2 text-white" id="moodBtn">Submit</button>
+                </div>
+
+                <div class="genreStyle m-1 p-1">
+                    <label for="genres">Go By Genre</label>
+                    <select name="genres" id="genres" class="m-2 p-1">
+                        <option value="action">Action</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="scifi">Sci-Fi</option>
+                        <option value="documentary">Documentary</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="party">Adventure</option>
+                        <option value="romcom">Romance</option>
+                        <option value="classics">Westerns</option>
+                        <option value="horror">Horror</option>
+                        <option value="cathartic">Drama</option>
+                    </select>
+                    <br/><br/>
+                    <button class="bg-sky-500 hover:bg-sky-600 rounded m-2 px-2 text-white">Submit</button>
+
+                </div>
+            </div>
             <!-- End of search section -->
 
             <!-- Playlist section -->
-            <div class="container">
-                <div id="movieplist">
+            <div class="right-column box m-1 p-1">
+                <div class="movie-container m-1 p-1">
                     <h2>My Movie Playlist</h2>
-                    <section>
-                    <table>
-                        <tr> 
-                          <td>Column 1</td>
-                          <td>Column 2</td>
-                        </tr>
-                        <tr> 
-                          <td>Column 3</td>
-                          <td>Column 4</td>
-                        </tr>
-                        <tr>
-                          <td>Column 5</td>
-                          <td>Column 6</td>
-                        </tr>
-                        <tr>
-                          <td>Column 7</td>
-                          <td>Column 8</td>
-                        </tr>
-                        <tr>
-                          <td>Column 9</td>
-                          <td>Column 10</td>
-                        </tr>
-                      </table>
-                      </section>
+                    <section id="movieplist" class="m-1 flex flex-wrap justify-evenly">
+
+                    </section>
                 </div>
-                <!-- End of playlist section -->
-
-
             </div>
-    
+
         </div>
         <!-- End of container -->
 
         <footer> "This product uses the TMDB API but is not endorsed or certified by TMDB." </footer>
         <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg">
-    
     </main>
     
     <!-- Link to JS & jQuery-->
@@ -118,3 +93,4 @@
 
 </body>
 </html>
+

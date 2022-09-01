@@ -1,4 +1,75 @@
 *{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: sans-serif;
     background-color: antiquewhite;
 }
+
+.grid-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.box{
+    text-align: center;
+    padding: 10px;
+    background-color: lightblue;
+    border: 5px solid black;
+}
+
+.left-column{
+    flex-grow: 0;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.right-column{
+    flex-grow: 4;
+    min-height: 100%;
+}
+
+.moviegram-header{
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+.left-column form{
+    border: 5px solid black;
+    display: flex;
+    border-radius: 5px;
+}
+
+.genreStyle{
+    border:5px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.movie-container{
+    max-height: 100%;
+    min-height: 99%;
+}
+
+#movieplist{
+    height: 100%;
+}
+.movie-container h2{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.resultStyle{
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+.moodStyle{
+    border: 5px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#moods:hover,#genres:hover{
+    background-color: skyblue;
+}
+
+
