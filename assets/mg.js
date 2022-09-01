@@ -76,7 +76,7 @@ fetchGenres();
       //}
 
 // Array IDs for Action, Thriller, Sci-Fi, Documentary, Comedy, Adventure, Romance, Westerns, Horror, Drama
-var arrayids = [28, 53, 878, 99, 35, 12, 10749, 37, 27, 18] 
+var arrayids = [28, 53, 878, 99, 35, 12, 10749, 37, 27, 18]
 
 let txt = "";
 for (let x in arrayids) {
