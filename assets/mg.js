@@ -13,30 +13,37 @@ var movies;
 var playlist = [];
 
 // Creating var and loop for mood IDs
-var moodAPI =  "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Crelaxing%20"
-var moodwords = 'happy,melancholic,heady,curious,excited,celebratory,tired,easygoing,dramatic,relaxing'
-var moodArr = moodwords.split (',');
-console.log(moodArr);
+var moodAPI =  `https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=${selectedMood}`
+//var moodwords = 'happy,melancholic,heady,curious,excited,celebratory,tired,easygoing,dramatic,relaxing'
+var selectedMood = $("#moods :selected").val();
+console.log(selectedMood);
+//var moodArr = moodwords.split (',');
+//console.log(moodArr);
 
 //Accessing individual values
-alert(moodArr[0]);
-alert(moodArr[1]);
-alert(moodArr[2]);
-alert(moodArr[3]);
-alert(moodArr[4]);
-alert(moodArr[5]);
-alert(moodArr[6]);
-alert(moodArr[7]);
-alert(moodArr[8]);
-alert(moodArr[9]);
+// alert(moodArr[0]);
+// alert(moodArr[1]);
+// alert(moodArr[2]);
+// alert(moodArr[3]);
+// alert(moodArr[4]);
+// alert(moodArr[5]);
+// alert(moodArr[6]);
+// alert(moodArr[7]);
+// alert(moodArr[8]);
+// alert(moodArr[9]);
 
-
-let moodresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Cpent%2Cup%20')   
-    if (response.ok) {
-        return response.json();
-    }
-
-//
+function fetchMoods(){
+let moodresaction = fetch(`https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy`)   
+   // .then(res => res.json()).then(data => console.log(data));
+    // console.log(data);
+   .then(function(response){
+    return response.json();
+   }) 
+   .then(function(data){
+    console.log(data);
+   })
+}
+fetchMoods();
         
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -51,11 +58,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var genreAPI = "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true"
 
-let genreresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true&total_results=10')
-    //.then(res => res.json()).then(data => console.log(data));
-       if (response.ok) {
-        return response.json();
-      }
+function fetchGenres(){
+let genreresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true')
+    .then(function(response){
+    return response.json();
+   }) 
+   .then(function(data){
+    console.log(data);
+   })
+}
+fetchGenres();
+
+// .then(res => res.json()).then(data => console.log(data));
+    // console.log(data);
+       //if (response.ok) {
+        //return response.json();
+      //}
 
 // Array IDs for Action, Thriller, Sci-Fi, Documentary, Comedy, Adventure, Romance, Westerns, Horror, Drama
 var arrayids = [28, 53, 878, 99, 35, 12, 10749, 37, 27, 18] 
