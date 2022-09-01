@@ -13,7 +13,23 @@ var movies;
 var playlist = [];
 
 // Creating var and loop for mood IDs
-var moodAPI =  "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Cpent%2Cup%20"
+var moodAPI =  "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Crelaxing%20"
+var moodwords = 'happy,melancholic,heady,curious,excited,celebratory,tired,easygoing,dramatic,relaxing'
+var moodArr = moodwords.split (',');
+console.log(moodArr);
+
+//Accessing individual values
+alert(moodArr[0]);
+alert(moodArr[1]);
+alert(moodArr[2]);
+alert(moodArr[3]);
+alert(moodArr[4]);
+alert(moodArr[5]);
+alert(moodArr[6]);
+alert(moodArr[7]);
+alert(moodArr[8]);
+alert(moodArr[9]);
+
 
 let moodresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Cpent%2Cup%20')   
     if (response.ok) {
