@@ -1,6 +1,6 @@
-var genreSel = $("genreSel");
+var genreSelEl = $("genreSel");
 var genreResults = $("genreResults-btn");
-var moodSel = $("moodSel");
+var moodSelEl = $("moodSel");
 var moodResults = $("moodResults-btn");
 var moviePlaylistEl = $("movieplist");
 
@@ -12,8 +12,8 @@ var movies;
 var playlist = [];
 
 document.addEventListener('DOMContentLoaded', function () {
-    var input = document.this.getElementById('genreSel');
-    if (localStorage ['genreSel]']) { //if genre is chosen
+    var input = document.getElementById('genres');
+    if (localStorage ['genreSel']) { //if genre is chosen
         input.value = localStorage['genreSel']; //set the value
     }
     input.onchange = function () {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    var input = document.this.getElementById('moodSel');
+    var input = document.getElementById('moods');
     if (localStorage ['moodSel]']) { //if mood is chosen
         input.value = localStorage['moodSel']; //set the value
     }
@@ -31,4 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-let response = fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US')
+
+// let response = fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US');
+
+let responsetest = fetch('https://api.themoviedb.org/3/search/movie?api_key=bd949d583d67c785ccc8d2de7703c463&query=batman+be').then(res => res.json()).then(data => console.log(data)) 
+console.log(responsetest);
+
