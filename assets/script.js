@@ -123,28 +123,11 @@ function parseData(response) {
       });
     });
   }
-
-  renderGenreSearch(imdbIds);
-}
-
-//Renders the movie search results
-function renderGenreSearch(results) {
-  searchResults.html("");
-  movies = results;
-  console.log(movies);
-  console.log(imdbIds);
-  
-  for (i = 0; i < movies.length; i++) {
-    console.log(movies.length);
-    var li = $("<li>");
-    li.text(movies[i].Title);
-    li.attr("data-index", i);
-    li.addClass("rounded bg-sky-500 hover:bg-sky-600 m-1");
-    searchResults.append(li);
-
-    li.on("click", saveMovie);
-    console.log(i);
+  var conversion = {
+    Search: imdbIds
   }
+
+  renderSearch(conversion);
 }
 
 //Event listener for movie selection
