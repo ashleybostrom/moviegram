@@ -2,16 +2,30 @@ var movieSearch = $("#movieSearch");
 var searchBtn = $("#searchBtn");
 var searchResults = $("#searchResults");
 var moviePlaylistEl = $("#movieplist");
+var genreSel = $("#genres");
+var genreSubmit = $("#genreBtn");
+var moodSel = $("#moods");
+var moodSubmit = $("#moodBtn");
+var moviePlaylistEl = $("#movieplist");
 
-var omdbapi = "http://www.omdbapi.com/?apikey=ab9eb185&plot=short&s=";
+var tmdbGenre = "https://api.themoviedb.org/3/discover/movie?api_key=c560270447805eeaa48cfdda957f60b7&language=en-US&sort_by=popularity.desc&with_genres=";
+var tmdbapi = "https://api.themoviedb.org/3/search/keyword?api_key=c560270447805eeaa48cfdda957f60b7&query=";
+var omdbapi = "http://www.omdbapi.com/?apikey=ab9eb185&s=";
+var getId1 = "https://api.themoviedb.org/3/movie/";
+var getId2 = "/external_ids?api_key=c560270447805eeaa48cfdda957f60b7";
+var getMovieData = "http://www.omdbapi.com/?apikey=ab9eb185&i="
+
 var movies;
 var playlist = [];
+var ids = [];
+var imdbIds = [];
 
 
 //Renders the movie search results
 function renderSearch(results) {
   searchResults.html("");
   movies = results.Search;
+  console.log(results);
   
   for (i = 0; i < movies.length; i++) {
     //Search results
@@ -88,6 +102,51 @@ function renderPlaylist() {
   }
 }
 
+//reads response data from TMDB API 
+function parseData(response) {
+  console.log(response);
+  var results = response.results;
+  imdbIds = [];
+
+  for (var i = 0; i < results.length; i++) {
+    fetch(getId1 + results[i].id + getId2)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      fetch(getMovieData + data.imdb_id)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        imdbIds.push(data);
+      });
+    });
+  }
+
+  renderGenreSearch(imdbIds);
+}
+
+//Renders the movie search results
+function renderGenreSearch(results) {
+  searchResults.html("");
+  movies = results;
+  console.log(movies);
+  console.log(imdbIds);
+  
+  for (i = 0; i < movies.length; i++) {
+    console.log(movies.length);
+    var li = $("<li>");
+    li.text(movies[i].Title);
+    li.attr("data-index", i);
+    li.addClass("rounded bg-sky-500 hover:bg-sky-600 m-1");
+    searchResults.append(li);
+
+    li.on("click", saveMovie);
+    console.log(i);
+  }
+}
+
 //Event listener for movie selection
 moviePlaylistEl.on("click", function(event) {
   var element = $(event.target);
@@ -121,6 +180,17 @@ searchBtn.on("click", function(event) {
   });
 
   movieSearch.val("");
+});
+
+//Event listener for genre submit button
+genreSubmit.on("click", function() {
+  fetch(tmdbGenre + genreSel.val())
+  .then(function (response) {
+      return response.json();
+  })
+  .then(function (data) {
+      parseData(data);
+  });
 });
 
 initPlaylist();
