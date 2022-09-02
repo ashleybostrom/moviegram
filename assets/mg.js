@@ -1,3 +1,16 @@
+
+var genreSel = $("#genres");
+var genreSubmit = $("#genreBtn");
+ 
+var moodSel = $("#moods");
+var moodSubmit = $("#moodBtn");
+var moviePlaylistEl = $("#movieplist");
+
+var tmdbapi = "https://api.themoviedb.org/3/search/keyword?api_key=c560270447805eeaa48cfdda957f60b7&query=";
+// var movies;
+// var playlist = [];
+
+
 var genreSelEl = $("genreSel");
 var genreResults = $("genreResults-btn");
 var moodSelEl = $("moodSel");
@@ -11,6 +24,7 @@ var tmdbapi = 'https://api.themoviedb.org/3/movie/76341?api_key=bd949d583d67c785
 var imgpath = 'https://image.tmdb.org/t/p/w1280';
 var movies;
 var playlist = [];
+
 
 // Creating var and loop for mood IDs
 var moodAPI =  "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Crelaxing%20"
@@ -66,6 +80,22 @@ for (let x in arrayids) {
 }
 
 
+
+
+
+genreSubmit.on("click", function() {
+    fetch(tmdbapi + genreSel.val())
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    });
+});
+
+moodSubmit.on("click", function() {
+    console.log(moodSel.val());
+});
 
     document.addEventListener('DOMContentLoaded', function () {
         var input = document.getElementById('genres');
