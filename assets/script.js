@@ -10,10 +10,10 @@ var moviePlaylistEl = $("#movieplist");
 
 var tmdbGenre = "https://api.themoviedb.org/3/discover/movie?api_key=c560270447805eeaa48cfdda957f60b7&language=en-US&sort_by=popularity.desc&with_genres=";
 var tmdbapi = "https://api.themoviedb.org/3/search/keyword?api_key=c560270447805eeaa48cfdda957f60b7&query=";
-var omdbapi = "http://www.omdbapi.com/?apikey=ab9eb185&s=";
+var omdbapi = "https://www.omdbapi.com/?apikey=ab9eb185&s=";
 var getId1 = "https://api.themoviedb.org/3/movie/";
 var getId2 = "/external_ids?api_key=c560270447805eeaa48cfdda957f60b7";
-var getMovieData = "http://www.omdbapi.com/?apikey=ab9eb185&i="
+var getMovieData = "https://www.omdbapi.com/?apikey=ab9eb185&i="
 
 var movies;
 var playlist = [];
