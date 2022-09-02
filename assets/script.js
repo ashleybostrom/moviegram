@@ -1,40 +1,126 @@
-var movieSearch = document.querySelector("#movieSearch");
-var searchBtn = document.querySelector("#searchBtn");
-var searchResults = document.querySelector("#searchResults");
+var movieSearch = $("#movieSearch");
+var searchBtn = $("#searchBtn");
+var searchResults = $("#searchResults");
+var moviePlaylistEl = $("#movieplist");
 
-var omdbapi = "http://www.omdbapi.com/?apikey=ab9eb185&s=";
+var omdbapi = "http://www.omdbapi.com/?apikey=ab9eb185&plot=short&s=";
+var movies;
+var playlist = [];
 
 
-function onSubmit(event) {
+//Renders the movie search results
+function renderSearch(results) {
+  searchResults.html("");
+  movies = results.Search;
+  
+  for (i = 0; i < movies.length; i++) {
+    //Search results
+    var li = $("<li>");
+    li.text(movies[i].Title);
+    li.attr("data-index", i);
+    li.addClass("rounded bg-sky-500 hover:bg-sky-600 m-1")
+    searchResults.append(li);
+
+    li.on("click", saveMovie);
+  }
+}
+
+//saves movie selection to your playlist
+function saveMovie(event) {
+  var selection = $(event.target).attr("data-index");
+  playlist.push(movies[selection]);
+  storePlaylist();
+  renderPlaylist();
+}
+
+//Initilizes stored playlist
+function initPlaylist() {
+  var storedPlaylist = JSON.parse(localStorage.getItem("playlist"));
+  if (storedPlaylist !== null) {
+    playlist = storedPlaylist;
+  }
+
+  renderPlaylist();
+}
+
+//stores playlist in local storage
+function storePlaylist() {
+  localStorage.setItem("playlist", JSON.stringify(playlist));
+}
+
+//Renders your plyalists
+function renderPlaylist() {
+  moviePlaylistEl.html("");
+
+  for (var i = 0; i < playlist.length; i++) {
+    //Playlist Items
+    var div = $("<div>");
+    div.attr("data-index", i);
+    div.addClass("rounded border-2 border-green-700 bg-green-400 m-1 p-1 flex flex-col");
+
+    //Title
+    var title = $("<span>")
+    title.text(playlist[i].Title);
+    title.addClass("rounded bg-green-500 p-1")
+
+    //Poster
+    var container = $("<div>");
+    var img = $("<img>");
+    img.attr("src", playlist[i].Poster);
+
+    //Delete button
+    var button = $("<button>");
+    button.text("delete");
+    button.addClass("rounded px-2 bg-red-600 hover:bg-red-700");
+
+    //Year
+    var year = $("<span>");
+    year.text(playlist[i].Year);
+    year.addClass("rounded bg-gray-400 p-1")
+
+    //Append Elements
+    moviePlaylistEl.append(div);
+    div.append(title);
+    div.append(year);
+    div.append(container);
+    container.append(img);
+    div.append(button);
+  }
+}
+
+//Event listener for movie selection
+moviePlaylistEl.on("click", function(event) {
+  var element = $(event.target);
+
+  if (element.is("button")) {
+    var index = element.parent().attr("data-index");
+    playlist.splice(index, 1);
+
+    storePlaylist();
+    renderPlaylist();
+  }
+});
+
+//Event listener for search submit button
+searchBtn.on("click", function(event) {
   event.preventDefault();
-
-  var userSearch = movieSearch.value.trim();
+  
+  var userSearch = movieSearch.val().trim();
   if (userSearch === "") {
     return;
   }
 
+  //OMDB API Fetch request
   fetch(omdbapi + userSearch)
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
     renderSearch(data);
+    console.log(data);
   });
-}
 
-function renderSearch(results) {
-  
-  var movies = results.Search;
-  
+  movieSearch.val("");
+});
 
-
-  for (i = 0; i < movies.length; i++) {
-    console.log(movies[i].Title);
-  }
-  
-}
-
-searchBtn.addEventListener("click", onSubmit);
-
-
-
+initPlaylist();
