@@ -6,7 +6,7 @@ var moodSel = $("#moods");
 var moodSubmit = $("#moodBtn");
 var moviePlaylistEl = $("#movieplist");
 
-var tmdbapi = "https://api.themoviedb.org/3/search/keyword?api_key=c560270447805eeaa48cfdda957f60b7&query=";
+var tmdbapi = "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=";
 // var movies;
 // var playlist = [];
 
@@ -20,7 +20,7 @@ var moviePlaylistEl = $("movieplist");
 console.log('Mood Selection', moodSelEl.val());
 console.log('Genre Selection', genreSelEl.val());
 
-var tmdbapi = 'https://api.themoviedb.org/3/movie/76341?api_key=bd949d583d67c785ccc8d2de7703c463';
+//var tmdbapi = 'https://api.themoviedb.org/3/movie/76341?api_key=bd949d583d67c785ccc8d2de7703c463';
 var imgpath = 'https://image.tmdb.org/t/p/w1280';
 var movies;
 var playlist = [];
@@ -45,10 +45,10 @@ alert(moodArr[8]);
 alert(moodArr[9]);
 
 
-let moodresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Cpent%2Cup%20')   
-    if (response.ok) {
-        return response.json();
-    }
+//let moodresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_keywords=happy%2Cmelancholic%2Cheady%2Ccurious%2Cexcited%2Ccelebratory%2Ctired%2Ceasygoing%2Cdramatic%2Cpent%2Cup%20')   
+    //if (response.ok) {
+        //return response.json();
+    //}
 
 //
         
@@ -65,14 +65,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var genreAPI = "https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true"
 
-let genreresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true&total_results=10')
-    //.then(res => res.json()).then(data => console.log(data));
-       if (response.ok) {
-        return response.json();
-      }
+// let genreresaction = fetch('https://api.themoviedb.org/3/discover/movie?api_key=bd949d583d67c785ccc8d2de7703c463&language=en-US&include_adult=false&include_video=false&page=1&with_genres=true&total_results=10')
+//     //.then(res => res.json()).then(data => console.log(data));
+//        if (response.ok) {
+//         return response.json();
+//       }
 
 // Array IDs for Action, Thriller, Sci-Fi, Documentary, Comedy, Adventure, Romance, Westerns, Horror, Drama
-var arrayids = [28, 53, 878, 99, 35, 12, 10749, 37, 27, 18] 
+var arrayids = [28, 53, 878, 99, 35, 12, 10749, 37, 27, 18]
 
 let txt = "";
 for (let x in arrayids) {
@@ -84,7 +84,8 @@ for (let x in arrayids) {
 
 
 genreSubmit.on("click", function() {
-    fetch(tmdbapi + genreSel.val())
+    var searchUrl = tmdbapi + genreSel.val()
+    fetch(searchUrl)
     .then(function (response) {
         return response.json();
     })
@@ -96,13 +97,3 @@ genreSubmit.on("click", function() {
 moodSubmit.on("click", function() {
     console.log(moodSel.val());
 });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        var input = document.getElementById('genres');
-        if (localStorage ['genreSel']) { //if genre is chosen
-            input.value = localStorage['genreSel']; //set the value
-        }
-        input.onchange = function () {
-            localStorage['genreSel'] = this.value; //change localStorage on change
-        }
-    });
